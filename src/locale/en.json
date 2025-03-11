@@ -1,3 +1,5 @@
 {
-  "hello": "Hello"
+  "hello": "Hello",
+  "EN": "English",
+  "ZHTW": "繁體中文"
 }
