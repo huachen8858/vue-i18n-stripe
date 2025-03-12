@@ -1,38 +1,58 @@
 <template>
-  {{ $t("hello") }}
-  <select
-    name="locale"
-    id="locale"
-    @change="SwitchLanguage"
-    v-model="currentLocale"
-  >
-    <option value="EN">{{ $t("EN") }}</option>
-    <option value="ZHTW">{{ $t("ZHTW") }}</option>
-  </select>
+  <div class="home">
+    <NavBar />
+    <section class="main-container">
+      <div class="main-title">Everything you need, all in one place.</div>
+      <div class="main-desc">
+        Discover the world's top destinations that promise unforgettable
+        experiences. From scenic wonders to cultural hotspots, these places are
+        waiting for you to explore. Dive into the beauty and charm of each
+        unique location.
+      </div>
+    </section>
+    <section class="card-container">
+      {{ $t("hello") }}
+    </section>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { useI18n } from "vue-i18n";
-
-const { locale } = useI18n();
-const currentLocale = ref("EN");
-
-const SwitchLanguage = (event) => {
-  const selectedLang = event.target.value;
-  document.cookie = `locale=${selectedLang}; path=/`;
-  locale.value = selectedLang;
-};
-
-onMounted(() => {
-  const savedLocale =
-    document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("locale="))
-      ?.split("=")[1] || "EN";
-  currentLocale.value = savedLocale;
-  locale.value = savedLocale;
-});
+import NavBar from "./components/NavBar.vue";
 </script>
 
-<style scoped></style>
+<style scoped>
+.home {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.main-container {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #6495ed;
+  margin-bottom: 1%;
+}
+
+.main-desc {
+  max-width: 800px;
+  text-align: center;
+  font-size: 14px;
+  color: #8f8f8f;
+}
+
+.card-container {
+  width: 100%;
+  height: 64%;
+}
+</style>

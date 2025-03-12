@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "tour": "Blue Ice Cave Tour",
+    "description": "Explore one of Iceland's most amazing natural wonders on this adventure tour into a stunning Ice Cave within Vatnajökull National Park.",
+    "price": 158,
+    "tag": ["Caving", "Ice Caving", "Sightseeing"],
+    "imgLink": "",
+    "duration": "3 hours"
+  },
+  {
+    "id": 2,
+    "tour": "The Northern Lights Tour",
+    "description": "Jump aboard this affordable bus tour for your chance to see one of nature’s greatest marvels, the Northern Lights.",
+    "price": 65,
+    "tag": ["Sightseeing", "Northern lights hunting"],
+    "imgLink": "",
+    "duration": "3.5 hours"
+  },
+  {
+    "id": 3,
+    "tour": "The Whale Watching Tour",
+    "description": "Join this whale watching tour to see the incredible wealth of marine wildlife just off Reykjavík's shores.",
+    "price": 104,
+    "tag": ["Whale Watching", "Boat Trip"],
+    "imgLink": "",
+    "duration": "3.5 hours"
+  }
+]
