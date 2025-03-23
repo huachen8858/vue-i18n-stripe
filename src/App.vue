@@ -8,13 +8,14 @@
       </div>
     </section>
     <section class="card-container">
-      {{ $t("hello") }}
+      <TourCard />
     </section>
   </div>
 </template>
 
 <script setup>
 import NavBar from "./components/NavBar.vue";
+import TourCard from "./components/TourCard.vue";
 </script>
 
 <style scoped>
@@ -51,5 +52,7 @@ import NavBar from "./components/NavBar.vue";
 .card-container {
   width: 100%;
   height: 64%;
+  display: flex;
+  justify-content: space-evenly;
 }
 </style>

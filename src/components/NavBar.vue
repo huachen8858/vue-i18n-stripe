@@ -86,7 +86,7 @@ onMounted(() => {
 .title {
   font-size: 3vmin;
   font-weight: bold;
-  color: rgb(57, 97, 171);
+  color: #3961ab;
 }
 
 .custom-dropdown {
