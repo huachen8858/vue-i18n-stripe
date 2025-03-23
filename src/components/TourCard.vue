@@ -2,12 +2,21 @@
   <div v-for="tour in tours" :key="tour.id" class="tour-card">
     <div class="tour-img"><img :src="tour.imgLink" alt="" /></div>
     <div class="tour-center">
-      <div class="tour-name">{{ tour.tour }}</div>
-      <div class="tour-desc">{{ tour.description }}</div>
+      <div class="tour-name">{{ $t(tour.tour) }}</div>
+      <div class="tour-desc">{{ $t(tour.description) }}</div>
+      <div class="tour-tag">
+        <span v-for="(tag, index) in tour.tag" :key="index">
+          #{{ $t(tag) }}&nbsp;
+        </span>
+      </div>
     </div>
     <div class="tour-bottom">
-      <div class="tour-price">{{ tour.price }} USD</div>
-      <div class="book-now-btn" @click="bookNow(tour)">Book Now</div>
+      <div class="tour-price">
+        {{ tour.price + " " }} USD / {{ tour.duration + " " + $t("hours") }}
+      </div>
+      <div class="book-now-btn" @click="bookNow(tour)">
+        {{ $t("Book Now") }}
+      </div>
     </div>
   </div>
 </template>
@@ -16,8 +25,7 @@
 import tours from "../test/tour.json";
 
 const bookNow = (tour) => {
-  console.log('book now clicked:', tour);
-  
+  console.log("book now clicked:", tour);
 };
 </script>
 
@@ -49,13 +57,15 @@ const bookNow = (tour) => {
   width: 100%;
   height: 35%;
   padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .tour-center .tour-name {
   font-size: 20px;
   font-weight: bold;
   color: #3961ab;
-  margin-bottom: 10px;
 }
 
 .tour-center .tour-desc {
@@ -63,10 +73,16 @@ const bookNow = (tour) => {
   color: #8f8f8f;
 }
 
+.tour-center .tour-tag {
+  width: 100%;
+  font-size: 14px;
+  color: #6392cc;
+}
+
 .tour-bottom {
   box-sizing: border-box;
   width: 100%;
-  height: 10%;
+  height: 15%;
   padding: 5px 10px;
   background-color: #e6f6ff;
   display: flex;
