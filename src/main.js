@@ -9,8 +9,9 @@ const app = createApp(App);
 
 const i18n = createI18n(
   {
+    legacy: false,
+    globalInjection: true,
     locale: document.cookie.split('locale=')[1],
-    fallbackLocale: "EN",
     messages: {
       EN: EN,
       ZHTW: ZHTW,
