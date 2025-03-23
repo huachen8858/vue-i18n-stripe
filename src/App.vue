@@ -2,12 +2,9 @@
   <div class="home">
     <NavBar />
     <section class="main-container">
-      <div class="main-title">Everything you need, all in one place.</div>
+      <div class="main-title">{{ $t("title") }}</div>
       <div class="main-desc">
-        Discover the world's top destinations that promise unforgettable
-        experiences. From scenic wonders to cultural hotspots, these places are
-        waiting for you to explore. Dive into the beauty and charm of each
-        unique location.
+        {{ $t("description") }}
       </div>
     </section>
     <section class="card-container">
