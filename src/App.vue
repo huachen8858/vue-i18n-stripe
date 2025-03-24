@@ -51,7 +51,7 @@ import TourCard from "./components/TourCard.vue";
 
 .card-container {
   width: 100%;
-  height: 64%;
+  height: 60%;
   display: flex;
   justify-content: space-evenly;
 }
