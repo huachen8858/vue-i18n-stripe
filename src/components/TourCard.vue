@@ -24,8 +24,10 @@
 <script setup>
 import tours from "../test/tour.json";
 
+const emits = defineEmits(["bookNow"]);
+
 const bookNow = (tour) => {
-  console.log("book now clicked:", tour);
+  emits("bookNow", tour);
 };
 </script>
 

@@ -17,5 +17,16 @@
   "Whale Watching": "Whale Watching",
   "Boat Trip": "Boat Trip",
   "hours": "hours",
-  "Book Now": "Book Now"
+  "Book Now": "Book Now",
+  "Add Booking": "Add Booking",
+  "Guest Name": "Guest Name",
+  "Email": "Email",
+  "Number of People": "Number of People",
+  "Date": "Date",
+  "Please enter": "Please enter",
+  "Submit": "Submit",
+  "Guest name is required": "Guest name is required",
+  "Guest name must be less than 100 characters": "Guest name must be less than 100 characters",
+  "Email is required": "Email is required",
+  "Invalid email format": "Invalid email format"
 }

@@ -17,5 +17,16 @@
   "Whale Watching": "賞鯨",
   "Boat Trip": "遊船之旅",
   "hours": "小時",
-  "Book Now": "立即預訂"
+  "Book Now": "立即預訂",
+  "Add Booking": "新增預約",
+  "Guest Name": "預約者姓名",
+  "Email": "信箱",
+  "Number of People": "人數",
+  "Date": "日期",
+  "Please enter": "請輸入",
+  "Submit": "Submit",
+  "Guest name is required": "預約者姓名為必填項",
+  "Guest name must be less than 100 characters": "預約者姓名不能超過 100 個字元",
+  "Email is required": "電子郵件為必填項",
+  "Invalid email format": "電子郵件格式不正確"
 }
