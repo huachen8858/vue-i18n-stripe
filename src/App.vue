@@ -2,7 +2,7 @@
   <Dialog
     :visible="addBookingVisible"
     :title="$t('Add Booking')"
-    :width="30"
+    :width="60"
     :height="70"
     :footer="true"
     :okText="'Submit'"
@@ -12,43 +12,57 @@
   >
     <template #default>
       <div class="dialog-content">
-        <div class="form-group">
-          <label>{{ $t("Guest Name") }}</label>
-          <input
-            v-model="bookingForm.name"
-            type="text"
-            :placeholder="$t('Please enter') + ' ' + $t('Guest Name')"
-          />
-          <div class="error">
-            <div v-if="errors.name">{{ errors.name }}</div>
+        <div class="current-tour">
+          <div class="tour-img"><img :src="currentTour.imgLink" alt="" /></div>
+          <div class="tour-info">
+            <div class="tour-name">{{ $t(currentTour.tour) }}</div>
+            <div class="tour-desc">{{ $t(currentTour.description) }}</div>
+            <div class="tour-tag">
+              <span v-for="(tag, index) in currentTour.tag" :key="index">
+                #{{ $t(tag) }}&nbsp;
+              </span>
+            </div> 
           </div>
         </div>
-
-        <div class="form-group">
-          <label>{{ $t("Email") }}</label>
-          <input
-            v-model="bookingForm.email"
-            type="email"
-            :placeholder="$t('Please enter') + ' ' + $t('Email')"
-          />
-          <div class="error">
-            <div v-if="errors.email">{{ errors.email }}</div>
+        <div class="form">
+          <div class="form-group">
+            <label>{{ $t("Guest Name") }}</label>
+            <input
+              v-model="bookingForm.name"
+              type="text"
+              :placeholder="$t('Please enter') + ' ' + $t('Guest Name')"
+            />
+            <div class="error">
+              <div v-if="errors.name">{{ errors.name }}</div>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label>{{ $t("Number of People") }}</label>
-          <input
-            v-model.number="bookingForm.people"
-            type="number"
-            min="1"
-            :placeholder="$t('Please enter') + ' ' + $t('Number of People')"
-          />
-        </div>
+          <div class="form-group">
+            <label>{{ $t("Email") }}</label>
+            <input
+              v-model="bookingForm.email"
+              type="email"
+              :placeholder="$t('Please enter') + ' ' + $t('Email')"
+            />
+            <div class="error">
+              <div v-if="errors.email">{{ errors.email }}</div>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label>{{ $t("Date") }}</label>
-          <input v-model="bookingForm.date" type="date" :min="minDate" />
+          <div class="form-group">
+            <label>{{ $t("Number of People") }}</label>
+            <input
+              v-model.number="bookingForm.people"
+              type="number"
+              min="1"
+              :placeholder="$t('Please enter') + ' ' + $t('Number of People')"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>{{ $t("Date") }}</label>
+            <input v-model="bookingForm.date" type="date" :min="minDate" />
+          </div>
         </div>
       </div>
     </template>
@@ -93,9 +107,10 @@ const errors = ref({
   email: "",
 });
 
+const currentTour = ref({});
+
 const showAddBookingDialog = (tour) => {
-  console.log("tour", tour);
-  
+  currentTour.value = tour;
   addBookingVisible.value = true;
 };
 
@@ -197,8 +212,65 @@ const addBooking = () => {
   justify-content: space-evenly;
 }
 
+/* Dialog */
 .dialog-content {
-  width: 94%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-tour {
+  width: 48%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .tour-img {
+  width: 100%;
+  height: 55%;
+}
+
+.tour-img img {
+  width: 280px;
+} */
+
+.tour-img img {
+  width: 100%;
+  height: auto;
+}
+
+.tour-info {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tour-info .tour-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #3961ab;
+  margin-bottom: 10px;
+}
+
+.tour-info .tour-desc {
+  font-size: 14px;
+  color: #8f8f8f;
+  margin-bottom: 10px;
+}
+
+.tour-info .tour-tag {
+  width: 100%;
+  font-size: 14px;
+  color: #6392cc;
+}
+
+.form {
+  width: 48%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
