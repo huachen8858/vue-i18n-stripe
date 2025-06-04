@@ -28,5 +28,7 @@
   "Guest name is required": "Guest name is required",
   "Guest name must be less than 100 characters": "Guest name must be less than 100 characters",
   "Email is required": "Email is required",
-  "Invalid email format": "Invalid email format"
+  "Invalid email format": "Invalid email format",
+  "Booked Success": "Booked Success!",
+  "Back to home page": "Back to home page"
 }

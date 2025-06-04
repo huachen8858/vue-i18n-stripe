@@ -1,16 +1,94 @@
 <template>
-    <RouterView />
+  <Dialog
+    :visible="addBookingVisible"
+    :title="$t('Add Booking')"
+    :width="60"
+    :height="70"
+    :footer="true"
+    :okText="'Submit'"
+    @close="closeDialog"
+    @cancel="closeDialog"
+    @ok="addBooking"
+  >
+    <template #default>
+      <div class="dialog-content">
+        <div class="current-tour">
+          <div class="tour-img"><img :src="currentTour.imgLink" alt="" /></div>
+          <div class="tour-info">
+            <div class="tour-name">{{ $t(currentTour.tour || '') }}</div>
+            <div class="tour-desc">{{ $t(currentTour.description || '') }}</div>
+            <div class="tour-tag">
+              <span v-for="(tag, index) in currentTour.tag" :key="index">
+                #{{ $t(tag || '') }}&nbsp;
+              </span>
+            </div> 
+          </div>
+        </div>
+        <div class="form">
+          <div class="form-group">
+            <label>{{ $t("Guest Name") }}</label>
+            <input
+              v-model="bookingForm.name"
+              type="text"
+              :placeholder="$t('Please enter') + ' ' + $t('Guest Name')"
+            />
+            <div class="error">
+              <div v-if="errors.name">{{ errors.name }}</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>{{ $t("Email") }}</label>
+            <input
+              v-model="bookingForm.email"
+              type="email"
+              :placeholder="$t('Please enter') + ' ' + $t('Email')"
+            />
+            <div class="error">
+              <div v-if="errors.email">{{ errors.email }}</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>{{ $t("Number of People") }}</label>
+            <input
+              v-model.number="bookingForm.numberOfPeople"
+              type="number"
+              min="1"
+              :placeholder="$t('Please enter') + ' ' + $t('Number of People')"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>{{ $t("Date") }}</label>
+            <input v-model="bookingForm.date" type="date" :min="minDate" />
+          </div>
+        </div>
+      </div>
+    </template>
+  </Dialog>
+
+  <div class="home">
+    <NavBar />
+    <section class="main-container">
+      <div class="main-title">{{ $t("title") }}</div>
+      <div class="main-desc">
+        {{ $t("description") }}
+      </div>
+    </section>
+    <section class="card-container">
+      <TourCard @book-now="showAddBookingDialog" />
+    </section>
+  </div>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
-import { RouterView } from "vue-router";
-
 import { useI18n } from "vue-i18n";
 import dayjs from "dayjs";
-import NavBar from "./components/NavBar.vue";
-import TourCard from "./components/TourCard.vue";
-import Dialog from "./components/Dialog.vue";
+import NavBar from "../components/NavBar.vue";
+import TourCard from "../components/TourCard.vue";
+import Dialog from "../components/Dialog.vue";
 import axios from "axios";
 
 const { t } = useI18n();
