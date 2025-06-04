@@ -1,5 +1,24 @@
-# Vue 3 + Vite
+This project is the frontend for a complete Stripe payment integration, built with Vue 3, Vite, and vue-i18n. It works in conjunction with a Node.js backend to provide full order and payment functionality.
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Backend repository (required): https://github.com/your-backend-repo/stripe-node-server
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Features
+- Stripe Checkout integration
+- Multilingual support with vue-i18n
+- Axios communication with backend server
+
+
+Technologies
+- Vue 3 + Vite
+- vue-i18n
+- Axios
+- Stripe Checkout (via backend API)
+
+
+Preview
+![image1](image.png)
+![image2](image-1.png)
+![image3](image-2.png)
+![image4](image-3.png)
+![image5](image-4.png)
+![image6](image-5.png)
